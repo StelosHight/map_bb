@@ -1,0 +1,10 @@
+release/main.o
+release/mainwindow.o
+release/map_object.o
+release/mylabel.o
+release/myscene.o
+release/svgreader.o
+release/moc_mainwindow.o
+release/moc_map_object.o
+release/moc_mylabel.o
+release/moc_myscene.o
