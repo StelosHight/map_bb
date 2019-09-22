@@ -67,9 +67,29 @@ void MyScene::change_cell_size(int size)
 }
 
 void MyScene::change_scene_size(int width, int height)
-{
+{    
+    int max_width = size * count_of_width_cells;
+    int max_height = size * count_of_height_cells;
+
+    for(int i = size, j = size; i < max_width || j < max_height; i += size, j += size)
+    {
+        if (j < max_height) {delete ll.last(); ll.removeLast(); } // горизонтальная линия
+        if (i < max_width) {delete ll.last(); ll.removeLast(); } // вертикальная линия
+    }
+
     count_of_width_cells = width;
     count_of_height_cells = height;
+
+    max_width = size * count_of_width_cells;
+    max_height = size * count_of_height_cells;
+
+    this->setSceneRect(0, 0, max_width, max_height);
+
+    for(int i = size, j = size; i < max_width || j < max_height; i += size, j += size)
+    {
+        if (j < max_height) ll.push_back(this->addLine(0, j, max_width, j, QPen(Qt::black))); // горизонтальная линия
+        if (i < max_width) ll.push_back(this->addLine(i, 0, i, max_height,QPen(Qt::black))); // вертикальная линия
+    }
 }
 
 int MyScene::get_count_of_width_cells()

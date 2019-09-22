@@ -893,6 +893,6 @@ void MainWindow::change_map_size()
         llab.clear();
 
         scene->change_scene_size(ui_dialog->spinBox->value(), ui_dialog->spinBox_2->value());
-        re_draw_panel();
+        //re_draw_panel();
     }
 }
